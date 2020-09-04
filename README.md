@@ -1,2 +1,2 @@
-# Fundamentos-de-Programaci-n-Cient-fica
+# Fundamentos-de-Programacion-Cientifica
 C++
