@@ -59,19 +59,19 @@ int main()
          
         for (int i = 0 ; i < n; i++)
             {
-//                                                                        __________________________________
-              if (CarryIn==0)                                           // C_in  A   B       C_out  (A+B)Z | 		
-                {                                                       //---------------------------------|		C_in:  Carry In = 0 
-                 BinZ[i] = (( Bin1[i] ^ Bin2[i] ));                     //   0   0   0         0       0   |		C_out: Carry Out (A and B)
-                 CarryOut = ( Bin1[i] & Bin2[i] );                      //   0   0   1         0       1   |		(A+B)Z: (A xor B)
-                 CarryIn = CarryOut;                                    //   0   1   0         0       1   |
-                }                                                       //   0   1   1         1       0   |
-                                                                        //---------------------------------|		C_in:  Carry In = 1
-                else                                                    //   1   0   0         0       1   | 		C_out: Carry Out (A or B)
-                    {                                                   //   1   0   1         1       0   |		(A+B)Z: (A xnor B)
-                     BinZ[i] = (!(Bin1[i] ^ Bin2[i]));            	//   1   1   0         1       0   |
-                     CarryOut =  (Bin1[i] | Bin2[i]);                 	//   1   1   1         1       1   |
-                                                                        //_________________________________|
+//                                                                        _________________________________
+              if (CarryIn==0)                                        //  | C_in  A   B       C_out     Z   | 		
+                {                                                    //  |---------------------------------|		C_in:  Carry In = 0 
+                 BinZ[i] = (( Bin1[i] ^ Bin2[i] ));                  //  |   0   0   0         0       0   |		C_out: Carry Out (A and B)
+                 CarryOut = ( Bin1[i] & Bin2[i] );                   //  |   0   0   1         0       1   |		Z:     (A xor B)
+                 CarryIn = CarryOut;                                 //  |   0   1   0         0       1   |
+                }                                                    //  |   0   1   1         1       0   |
+                                                                     //  |---------------------------------|		C_in:  Carry In = 1
+                else                                                 //  |   1   0   0         0       1   | 		C_out: Carry Out (A or B)
+                    {                                                //  |   1   0   1         1       0   |		Z: (A xnor B)
+                     BinZ[i] = (!(Bin1[i] ^ Bin2[i]));               //  |   1   1   0         1       0   |
+                     CarryOut =  (Bin1[i] | Bin2[i]);                //  |   1   1   1         1       1   |
+                                                                     //  |_________________________________|
                      CarryIn = CarryOut;
                     }
                     
